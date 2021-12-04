@@ -4,6 +4,7 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
   const handleComplete = (todo) => {
     setTodos(
       todos.map((item) => {
+        console.log(item);
         if (item.id === todo.id) {
           return { ...item, completed: !item.completed };
         }
@@ -22,25 +23,27 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
     <div>
       {todos.map((todo) => (
         <li className="list-item" key={todo.id}>
+          <button
+              className="button button-complete"
+              onClick={() => handleComplete(todo)}
+            >
+              <span className="material-icons">done_outline</span>
+            </button>
           <input
             type="text"
             value={todo.title}
             className={`list ${todo.completed ? "complete" : " "}`}
             onChange={(event) => event.preventDefault()}
           />
+          
           <div>
-            <button
-              className="button button-complete"
-              onClick={() => handleComplete(todo)}
-            >
-              <span className="material-icons">done_outline</span>
-            </button>
-            <button
+            
+            {/* <button
               className="button button-edit"
               onClick={() => handleEdit(todo)}
             >
               <span className="material-icons">edit</span>
-            </button>
+            </button> */}
             <button
               className="button button-delete"
               onClick={() => handleDelete(todo)}
