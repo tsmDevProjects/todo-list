@@ -3,13 +3,13 @@ import "../styles.css";
 
 const Header = () => {
   return (    
-    <><div className="header-app">
+    
     <div className="header">
       <h1>TO DO</h1>
       <p>Metas da semana</p>
-      </div>
     </div>
-    </>
+    
+    
   );
 };
 
